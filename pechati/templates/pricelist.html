@@ -3,9 +3,9 @@
 {% block content %}
     <div class="row">
         {% for osnastki in osnastki_list %}
-            <div class="col-sm-4 col-lg-4 col-md-4">
+            <div class="col-sm-4 ">
                 <div class="thumbnail" style="height: 420px; position: relative;">
-                    <img src="{{ osnastki.image.url }}" alt="" style="width: 100%; height: 250px;">
+                    <img src="{{ osnastki.image.url }}" alt="" class="img-responsive">
                     <div class="caption">
                         <h4 class="text-center"><strong>
                             {{ osnastki.title }}</strong></h4>

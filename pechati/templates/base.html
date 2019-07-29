@@ -5,39 +5,28 @@
     <meta charset="UTF-8">
     <title>Pechati shop</title>
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
+    <link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}">
 </head>
-<style>
-    body {
-        margin: 0px 40px 20px 40px;
-        background-image: url("/media/backgroundsite.jpg")
-    }
-
-    .basic {
-        background-color: whitesmoke;
-    }
-</style>
 <body>
-<nav class="navbar navbar-default navbar-static-top">
-    <div class="container">
-        <div class="navbar-header">
-            <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
-                    aria-expanded="false" aria-controls="navbar">
-                <span class="sr-only">Toggle navigation</span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-                <span class="icon-bar"></span>
-            </button>
-            <a class="navbar-brand" href="/">Вектор-Мск</a>
-        </div>
-        <div id="navbar" class="navbar-collapse collapse">
-            <ul class="nav navbar-nav">
-                <li class="active"><a href="/">Главная</a></li>
-                <li><a href="{% url 'pricelist' %}">Цены</a></li>
-                <li><a href="{% url 'oplata_dostavka' %}">Оплата и доставка</a></li>
-                <li><a href="{% url 'contacts' %}">Контакты</a></li>
-            </ul>
-        </div><!--/.nav-collapse -->
+<nav class="navbar navbar-default navbar-static-top container fixed-top" style="position: fixed;">
+    <div class="navbar-header">
+        <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
+                aria-expanded="false" aria-controls="navbar">
+            <span class="sr-only">Toggle navigation</span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+        </button>
+        <a class="navbar-brand" href="/">Вектор-Мск</a>
     </div>
+    <div id="navbar" class="navbar-collapse collapse">
+        <ul class="nav navbar-nav">
+            <li><a href="/">Главная</a></li>
+            <li><a href="{% url 'pricelist' %}">Цены</a></li>
+            <li><a href="{% url 'oplata_dostavka' %}">Оплата и доставка</a></li>
+            <li><a href="{% url 'contacts' %}">Контакты</a></li>
+        </ul>
+    </div><!--/.nav-collapse -->
 </nav>
 <!-- Begin page content -->
 <div class="container basic">
@@ -45,47 +34,45 @@
         <div class="row">
             {% for item in pechati_objects %}
                 <div class="col-md-3">
+                    <img src="{{ item.image.url }}">
                     <p>{{ item.name }}</p>
                     <p>{{ item.description }}</p>
+                    <button class="btn btn-secondary"><a href="{% url 'pechatip' %}">Подробнее</a></button>
                 </div>
             {% endfor %}
         </div>
     {% endblock %}
 </div>
 
-<footer class="page-footer font-small unique-color-dark pt-4" style="background-color: lightgrey">
-
+<footer class=" container page-footer font-small unique-color-dark pt-4" style="background-color: lightgrey">
     <!-- Footer Text -->
-    <div class="container-fluid  text-md-left">
-
+    <div class=" text-md-left">
         <!-- Grid row -->
         <div class="row">
-
             <!-- Grid column -->
             <div class="col-md-12 mt-md-0 mt-3">
-
                 <!-- Content -->
-                <p class="text-center">Для того чтобы заказать печать, перейдите в необходимый раздел, выберите печать,
+                <p class="text-center" id="footer-text">Для того чтобы заказать печать, перейдите в необходимый раздел,
+                    выберите печать,
                     заполните данные и
                     подтвердите заказ печати. Кроме того, Вы можете купить печать позвонив нам или отправив электронное
                     письмо.</p>
-                <div class="col-3 ">2015-2019 ООО "Вектор-Мск"</div>
-                <div class="col-3 ">г. Москва, Измайловский проспект 35</div>
-
+                <div class="row" id="footer-cont-mailcity">
+                    <p id="footer-city">2015-2019 ООО "Вектор-Мск"<br>
+                        г. Москва, Измайловский проспект 35</p>
+                    <p id="footer-mail">+7-977-566-23-80<br>
+                        E-mail: rromanovandrey@gmail.com</p>
+                </div>
             </div>
             <!-- Grid column -->
-
-
         </div>
         <!-- Grid row -->
-
     </div>
     <!-- Footer Text -->
-
-
 </footer>
 <!-- Footer -->
-
-
+<script src='{% static "js/jquery.js" %}'></script>
+<script src='{% static "js/bootstrap.js" %}'></script>
+<script src="{% static "js/script.js" %}"></script>
 </body>
 </html>

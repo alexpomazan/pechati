@@ -1,0 +1,30 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+    <div class="flex-row">
+        {% for item in pechatip_list %}
+
+            <div class="col-md-4 text-center" >
+                <img  src="{{ item.image.url }}" class="img-responsive center-block">
+                <div class="cnt">
+                    <button class="btn btn-secondary text-center open-modal-btn">Заказать</button>
+                </div>
+            </div>
+        {% endfor %}
+    </div>
+    <div id="wrapper">
+        <div class="cover"></div>
+        <div class="modal">
+            <div class="content">
+                <p>Form for order</p>
+                <form onsubmit="return false">
+                    <input type="text" placeholder="test">
+                    <input type="submit"/>
+                </form>
+            </div>
+        </div>
+
+
+    </div>
+    </div>
+{% endblock %}
