@@ -7,8 +7,8 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/bootstrap.css' %}">
     <link rel="stylesheet" type="text/css" href="{% static "css/style.css" %}">
 </head>
-<body>
-<nav class="navbar navbar-default navbar-static-top container fixed-top" style="position: fixed;">
+<body class="center-block">
+<nav class="navbar navbar-default navbar-static-top container" id="header">
     <div class="navbar-header">
         <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar"
                 aria-expanded="false" aria-controls="navbar">
@@ -33,11 +33,11 @@
     {% block content %}
         <div class="row">
             {% for item in pechati_objects %}
-                <div class="col-md-3">
-                    <img src="{{ item.image.url }}">
-                    <p>{{ item.name }}</p>
-                    <p>{{ item.description }}</p>
-                    <button class="btn btn-secondary"><a href="{% url 'pechatip' %}">Подробнее</a></button>
+                <div class="col-sm-3 col-xs-12">
+                    <img src="{{ item.image.url }}" style="margin-top: 10px">
+                    {#                    <p>{{ item.description }}</p>#}
+                    <button class="btn btn-info btn-block" style="margin: 20px 0;"><a
+                            href="{% url 'pechatip' %}">{{ item.name }}</a></button>
                 </div>
             {% endfor %}
         </div>

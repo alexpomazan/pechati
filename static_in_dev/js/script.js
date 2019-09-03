@@ -5,6 +5,14 @@ $(document).ready(function () {
     btn.on('click', function () {
         modal.fadeIn();
     });
+    $("#header").removeClass("header-fixed");
+    $(window).scroll(function () {
+        if ($(this).scrollTop() > 20) {
+            $("#header").addClass("header-fixed").fadeIn('fast');
+        } else
+            $("#header").removeClass("header-fixed").fadeIn('fast');
+
+    })
 // close modal
     $('.modal').click(function () {
         wrap.on('click', function (event) {

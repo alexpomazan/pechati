@@ -4,10 +4,10 @@
     <div class="flex-row">
         {% for item in pechatip_list %}
 
-            <div class="col-md-4 text-center" >
-                <img  src="{{ item.image.url }}" class="img-responsive center-block">
+            <div class="col-md-3 text-center">
+                <img src="{{ item.image.url }}">
                 <div class="cnt">
-                    <button class="btn btn-secondary text-center open-modal-btn">Заказать</button>
+                    <button class="btn btn-warning text-center open-modal-btn btn-block ">Заказать</button>
                 </div>
             </div>
         {% endfor %}
@@ -16,10 +16,22 @@
         <div class="cover"></div>
         <div class="modal">
             <div class="content">
-                <p>Form for order</p>
+                <p>Оформление заказа печати</p>
                 <form onsubmit="return false">
                     <input type="text" placeholder="test">
-                    <input type="submit"/>
+                    {# <input type="submit"/>#}
+                    <p>Количество печатей</p>
+                    <input type="number">
+                    <p>За какой срок изготовить печать?</p>
+                    <input type="radio" id="timeforwork" name="time1" checked>
+                    <label for="time1">В течение дня</label>
+                    <input type="radio" id="timeforwork" name="time2">
+                    <label for="time2">За 3 часа(+200р)</label>
+                    <input type="radio" id="timeforwork" name="time3">
+                    <label for="time3">За 30 мниут(+400р)</label>
+                    <p></p>
+                    <label for="name">ФИО предпринимателя</label>
+                    <input type="text" id="name" name="name">
                 </form>
             </div>
         </div>
