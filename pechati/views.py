@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.conf import settings
+from django.contrib import messages
 from pechati.models import Pechat, Osnastka, Klishe
 from django.core.mail import send_mail
 
@@ -16,10 +17,10 @@ def pricelist_view(request):
 def pechatip_view(request):
     pechatip_list = Klishe.objects.filter(form='ip')
     send_mail(
-        'mail from sender',
-        'I want to buy some stamp',
+        'Evil',
+        'Ne besi menya, kozel!!!',
         settings.EMAIL_HOST_USER,
-        ['romanov408g@mail.ru'],
-        fail_silently=False,
+        ['aleksey.pomazan@gmail.com'],
+        fail_silently=True,
     )
     return render(request, 'pechatip.html', {'pechatip_list': pechatip_list})

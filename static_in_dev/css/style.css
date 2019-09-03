@@ -2,16 +2,20 @@ body {
     background-image: url("/media/backgroundsite.jpg");
     font-family: "Open Sans", sans-serif;
     font-size: 15px;
-    max-width: 1010px;
 }
 .basic {
     background-color: whitesmoke;
-    margin-top: 60px;
+    margin-top: 0px;
 }
 .cnt {
     text-align: center;
 }
 
+@media (min-width: 1200px) {
+    .container {
+        max-width: 1010px;
+    }
+}
 .contact {
     padding: 30px 0;
 }
