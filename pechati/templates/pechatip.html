@@ -17,11 +17,12 @@
         <div class="modal">
             <div class="content">
                 <p>Оформление заказа печати</p>
-                <form onsubmit="return false">
+                <form method="post" action="{% url 'pechatip' %}">
+                    {% csrf_token %}
                     <input type="text" placeholder="test">
                     {# <input type="submit"/>#}
                     <p>Количество печатей</p>
-                    <input type="number">
+                    <input type="number" name="quant">
                     <p>За какой срок изготовить печать?</p>
                     <input type="radio" id="timeforwork" name="time1" checked>
                     <label for="time1">В течение дня</label>
@@ -32,6 +33,7 @@
                     <p></p>
                     <label for="name">ФИО предпринимателя</label>
                     <input type="text" id="name" name="name">
+                    <input type="submit" value="Send message">
                 </form>
             </div>
         </div>

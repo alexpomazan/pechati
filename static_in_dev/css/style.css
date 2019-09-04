@@ -23,6 +23,14 @@ body {
 .header-fixed {
     position: fixed;
     top: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+@media (max-width: 1010px) {
+    .container {
+        width: auto;
+    }
 }
 .btn{
     margin: 5px 0;

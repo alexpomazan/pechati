@@ -16,11 +16,15 @@ def pricelist_view(request):
 
 def pechatip_view(request):
     pechatip_list = Klishe.objects.filter(form='ip')
-    send_mail(
-        'Evil',
-        'Ne besi menya, kozel!!!',
-        settings.EMAIL_HOST_USER,
-        ['aleksey.pomazan@gmail.com'],
-        fail_silently=True,
-    )
+    if request.method == 'POST':
+        nameip = request.POST['name']
+        quantity = request.POST['quant']
+        message = 'Client: ' + nameip + ' Quantity:' + quantity
+        send_mail(
+            'Hi, man',
+            message,
+            settings.EMAIL_HOST_USER,
+            ['eee4ew@netmail3.net'],
+            fail_silently=True,
+        )
     return render(request, 'pechatip.html', {'pechatip_list': pechatip_list})
